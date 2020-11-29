@@ -4,11 +4,6 @@ const app = express()
 const mongoose = require("mongoose")
 const {MONGOURI} = require("./keys")
 
-require ('./models/user')
-//mongoose.model("User")
-app.use(express.json())
-
-app.use(require("./routes/auth"))
 
 /*
 const customMiddleWare = (req,res,next ) =>{
@@ -33,6 +28,14 @@ mongoose.connection.on("error",(err)=> {
 console.log("connected to mongo failed",err)
 
 })
+
+require ('./models/user')
+//mongoose.model("User")
+app.use(express.json())
+
+app.use(require("./routes/auth"))
+app.use(require("./routes/post"))
+
 
 
 app.get("/",(req,res)=>{
